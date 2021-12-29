@@ -1,5 +1,10 @@
 function HomePage() {
-  return <div>Home Page</div>;
+  return (
+    <>
+      <Hero />
+      <FeaturedPost />
+    </>
+  );
 }
 
 export default HomePage;
