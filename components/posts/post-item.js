@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-function PostItem() {
+import classes from "./post-item.module.css";
+function PostItem(props) {
   return (
-    <li>
+    <li className={classes.post}>
       <Link>
         <a>
-          <div>
+          <div className={classes.image}>
             <Image />
           </div>
-          <div>
+          <div className={classes.content}>
             <h3>TITLE</h3>
             <time>July 13th 2022</time>
             <p>The excerpt</p>
