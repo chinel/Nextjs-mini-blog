@@ -18,7 +18,7 @@ function getPostData(fileName) {
   return postData;
 }
 
-function getAllPosts() {
+export function getAllPosts() {
   const postFiles = fs.readdirSync(postDirectory); //Read dir sync will read through all the content synchronously in a blocking way.
 
   const allPosts = postFiles.map((postFile) => {
@@ -30,4 +30,15 @@ function getAllPosts() {
   );
 
   return sortedPosts;
+}
+
+export function getFeaturedPosts() {
+  const allPosts = getAllPosts();
+  const featuredPosts = allPosts.filter((post) => post.isFeatured);
+  return featuredPosts;
+
+  //here we are still reading through all the files again.
+  //this is performat for larger blogs a better approach will be to
+  //have a separate json file that holds the isFeatured property for each post and then you can use the json file to retrieve files that should be featured post
+  //This is way much better for blog with hundreds of post
 }
