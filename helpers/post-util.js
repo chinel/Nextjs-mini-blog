@@ -20,4 +20,14 @@ function getPostData(fileName) {
 
 function getAllPosts() {
   const postFiles = fs.readdirSync(postDirectory); //Read dir sync will read through all the content synchronously in a blocking way.
+
+  const allPosts = postFiles.map((postFile) => {
+    return getPostData(postFile);
+  });
+
+  const sortedPosts = allPosts.sort((postA, postB) =>
+    postA.date > postB.date ? -1 : 1
+  );
+
+  return sortedPosts;
 }
