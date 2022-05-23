@@ -1,4 +1,7 @@
 import { MongoClient } from "mongodb";
+const DB_USER = process.env.NEXT_MONGO_DB_USER;
+const DB_PASSWORD = process.env.NEXT_MONGO_DB_PASSWORD;
+const DB_NAME = process.env.NEXT_MONGO_DB_NAME;
 async function handler(req, res) {
   if (req.method === "POST") {
     const { email, name, message } = req.body;
@@ -25,7 +28,7 @@ async function handler(req, res) {
     let client;
     try {
       client = await MongoClient.connect(
-        "mongodb+srv://nextjsbloguser:xMIy2UXcwg912lxV@cluster-nextjs.yaea0.mongodb.net/nextjs-blog?retryWrites=true&w=majority"
+        `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster-nextjs.yaea0.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`
       );
     } catch (error) {
       // console.log("--error 1");
