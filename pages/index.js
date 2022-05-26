@@ -1,6 +1,8 @@
 import FeaturedPosts from "../components/home/featured-posts";
 import Hero from "../components/home/hero";
 import { getFeaturedPosts } from "../helpers/post-util";
+import Head from "next/head";
+
 const DUMMY_POSTS = [
   {
     title: "Getting Started with NextJs",
@@ -39,6 +41,13 @@ const DUMMY_POSTS = [
 function HomePage(props) {
   return (
     <>
+      <Head>
+        <title>Nelly's Blog</title>
+        <meta
+          name="description"
+          content="I post about progamming and web development."
+        />
+      </Head>
       <Hero />
       <FeaturedPosts posts={props.posts} />
     </>
