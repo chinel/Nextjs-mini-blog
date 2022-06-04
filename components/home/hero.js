@@ -11,7 +11,7 @@ function Hero() {
           height={300}
         />
       </div>
-      <h1>Hi, I'm Nelly</h1>
+      <h1>Hi, I&apos;m Nelly</h1>
       <p>
         I blog about web development - especially frontend frameworks like React
         or Next
